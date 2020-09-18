@@ -10,7 +10,7 @@
 
 ***Key Logger***
 
-`Key logger, often referred to as keystroke logger or keyboard capture, is the action of recording the keys struck on a keyboard, typically covertly, so that person using the keyboard is unaware that their actions are being monitored. A key logger can be a software or a physical device we will be making one such software in this directory.`
+`Key logger, often referred to as keystroke logger or keyboard capture, is the action of recording the keys struck on a keyboard, typically covertly ,so that person using the keyboard is unaware that their actions are being monitored. A key logger can be a software or a physical device we will be making one such software in this directory.`
 
 
 ***Know_Your_IP***
