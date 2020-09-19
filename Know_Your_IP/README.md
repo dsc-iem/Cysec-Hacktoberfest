@@ -28,3 +28,15 @@
 *__Host ID__* 
 
 > This is the part of the IP address that you assign to each host. It uniquely identifies this machine on your network. Note that for each host on your network, the network part of the address will be the same, but the host part must be different.     
+
+*__To-Do's__*
+
+1. Find the class of the given IPv4 address.
+2. Find the network ID of the IPv4 address.
+3. Find the host ID of the IPv4 address.
+4. Calculate the subnet mask of IPv4 address.
+   
+*__Contributing Guidelines__*
+
+> **FOLLOW THE STEPS STRICTLY MENTIONED DURING THE SESSION**
+
