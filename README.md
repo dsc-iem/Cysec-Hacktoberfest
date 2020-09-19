@@ -17,4 +17,8 @@
 
 `IPv4 addresses are 32-bit numbers that are typically displayed in dotted decimal notation. A 32-bit address contains two primary parts: the network prefix and the host number. All hosts within a single network share the same network address. Each host also has an address that uniquely identifies it. IPv4 addresses are also classified into 5 different classes.`
 
-### Head over to the directories to know more
+### Head over to the directories to know more.
+
+*__Contributing Guidelines__*
+
+> **FOLLOW THE STEPS STRICTLY MENTIONED DURING THE SESSION**
