@@ -18,6 +18,7 @@
 `IPv4 addresses are 32-bit numbers that are typically displayed in dotted decimal notation. A 32-bit address contains two primary parts: the network prefix and the host number. All hosts within a single network share the same network address. Each host also has an address that uniquely identifies it. IPv4 addresses are also classified into 5 different classes.`
 
 ***Reverse Shell***
+
 `A Reverse Shell is a common tool used by attackers to take control of a victim machine. The attacker listens for incomimng connection requests as the victim tries to connect back to it. The attacker can now execute various tasks on the remote victim achine like Spawning a shell , taking a screenshot , uploading and downloading files, etc.`
 
 ### Head over to the directories to know more.
