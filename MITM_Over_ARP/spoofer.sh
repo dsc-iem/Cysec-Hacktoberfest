@@ -20,7 +20,7 @@ script_name=$0
 #	echo -e "${BOLD}${GREEN}[+] Usage :$0 -o <> -t<> -i <interface> ${NONE}"
 #	exit
 #fi
-echo -e "$MITM over ARP ${NONE}"
+echo -e "${BOLD}${GREEN}MITM over ARP ${NONE}"
 echo -e "${BOLD}[+] Coded By @whokilleddb ${NONE}"
 #getting variables from command line
 while test $# -gt 0; do
