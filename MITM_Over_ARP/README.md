@@ -5,7 +5,7 @@
 *__Usage__*
 
 ```
-/spoofer.sh -o 192.168.0.108 -t 192.168.0.1 -i wlan0   
+sudo ./spoofer.sh -o 192.168.0.108 -t 192.168.0.1 -i wlan0   
 ```
 
 *__Contributing Guidelines__*
