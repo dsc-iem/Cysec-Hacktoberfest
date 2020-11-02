@@ -23,7 +23,7 @@
 
 ***MITM Over ARP***
 
-`The Address Resolution Protocol (ARP) is a communication protocol used for discovering the link layer address, such as a MAC address, associated with a given internet layer address, typically an IPv4 address.The ARP protocol lacks any authentication mechanism which allows for performing Man-In-The-Middle Attacks.`
+`The Address Resolution Protocol (ARP) is a communication protocol used for discovering the link layer address, such as a MAC address, associated with a given internet layer address, typically an IPv4 address.The ARP protocol lacks any authentication mechanism which allows for performing Man-In-The-Middle Attacks.
 `
 ***Morsecode Encoder_Decoder***
 
