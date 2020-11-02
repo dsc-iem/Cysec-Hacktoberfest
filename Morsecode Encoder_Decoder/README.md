@@ -9,7 +9,7 @@ Morse code is a method of converting plain text into a series of on-off tones, l
 
 <b>ALGORITHM FOR MORSE CODE TRANSLATOR</b>
 
-The algorithm for morse code translator is very simple. In this we have convert each alphabet into its corresponding  dot & dashes or only with dot or dashes in some cases and vice-versa.
+The algorithm for morse code translator is very simple. In this we have to convert each alphabet into its corresponding  dot & dashes or only with dot or dashes in some cases and vice-versa.
 
 <b>MODULES USED</b>
 
@@ -19,3 +19,9 @@ The algorithm for morse code translator is very simple. In this we have convert 
 4. gui.py         :- This is the module where you can run the code with its simple GUI interface.
 5. gui_support.py :- This is module with try and except for importing the right library and for displaying GUI.
 6. run.py         :- This module deals with running of code with GUI. It is terminal based for the sake of simplicity.
+
+<b>How to Run?</b>
+
+Open terminal and type the following commands-<br>
+1. <code>python3 run.py</code> - To run without GUI
+2. <code>python3 gui.py</code> - To run with GUI
