@@ -25,6 +25,9 @@
 
 `The Address Resolution Protocol (ARP) is a communication protocol used for discovering the link layer address, such as a MAC address, associated with a given internet layer address, typically an IPv4 address.The ARP protocol lacks any authentication mechanism which allows for performing Man-In-The-Middle Attacks.
 `
+***Morsecode Encoder_Decoder***
+
+`Morsecode Encoder_Decoder is a basic tool which can decode any morse string into simple plain text and encrypt any plain text into morsecode. Morsecode is a method used in telecommunication to encode text characters as standardized sequences of two different signal durations, called dots and dashes or dits and dahs.
 
 ### Head over to the directories to know more.
 
